@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shain Mukungu Kampasi - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --cream: #f8f3e6;
+      --dark-cream: #e6dcc8;
+      --pink: #ff4d8d;
+      --neon-pink: #ff2e97;
+      --neon-blue: #00f3ff;
+      --dark: #5e177a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--dark);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 4rem 10%;
+      position: relative;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(255, 46, 151, 0.3);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2.5rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 50%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      border-radius: 2px;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    a {
+      color: var(--neon-pink);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--neon-blue);
+      text-shadow: 0 0 8px var(--neon-blue);
+    }
+
+    /* Utility Classes */
+    .highlight {
+      color: var(--pink);
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      color: var(--cream);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 46, 151, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn:hover:before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 46, 151, 0.4);
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.sticky {
+      background-color: rgba(26, 26, 46, 0.95);
+      padding: 1rem 10%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      color: var(--pink);
+      margin-left: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 2.5rem;
+    }
+
+    .nav-links a {
+      color: var(--cream);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-links a:before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover:before {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    /* Hero Section */
+    #hero {
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+    }
+
+
+    .hero-img {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255, 77, 141, 0.5);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-50%) translateX(0);
+      }
+      50% {
+        transform: translateY(-45%) translateX(15px);
+      }
+    }
+
+    .social-icons {
+      display: flex;
+      margin-top: 2rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--dark);
+      margin-right: 1rem;
+      border: 2px solid var(--neon-pink);
+      color: var(--cream);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--neon-pink);
+      box-shadow: 0 0 15px var(--neon-pink);
+      transform: translateY(-5px);
+    }
+
+    /* About Section */
+    #about {
+      background-color: rgba(26, 26, 46, 0.9);
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .skills {
+      margin-top: 2rem;
+    }
+
+    .skill-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .skill-bar {
+      height: 10px;
+      background-color: var(--dark-cream);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      width: 0;
+      animation: progress 1.5s ease-out forwards;
+      border-radius: 5px;
+    }
+
+    @keyframes progress {
+      to {
+        width: var(--w);
+      }
+    }
+
+    /* Projects Section */
+    #projects {
+      background-color: var(--dark);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background-color: rgba(248, 243, 230, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      transform: translateY(50px);
+      opacity: 0;
+    }
+
+    .project-card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 46, 151, 0.2);
+    }
+
+    .project-img {
+      height: 250px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+    }
+
+    .project-img img {
+      /* width: 100%; */
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-img img {
+      transform: scale(1.1);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--pink);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0.5rem 0;
+    }
+
+    .project-tag {
+      background-color: rgba(255, 77, 141, 0.1);
+      color: var(--pink);
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Experience Section */
+    #experience {
+      background-color: rgba(26, 26, 46, 0.9);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 3rem;
+    }
+
+    .timeline:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--neon-pink), var(--neon-blue));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      width: 100%;
+      display: flex;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.5s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+      transform: translateX(50px);
+    }
+
+    .timeline-item:nth-child(even).visible {
+      transform: translateX(0);
+    }
+
+    .timeline-content {
+      width: calc(50% - 30px);
+      background-color: rgba(248, 243, 230, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-content:before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--cream);
+      border-radius: 50%;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content:before {
+      right: -40px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content:before {
+      left: -40px;
+    }
+
+    .timeline-date {
+      color: var(--pink);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+    }
+
+    /* Education Section */
+    #education {
+      background-color: var(--dark);
+    }
+
+    .education-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .education-card {
+      width: 48%;
+      background-color: rgba(248, 243, 230, 0.05);
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .education-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .education-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 46, 151, 0.2);
+    }
+
+    .education-year {
+      color: var(--pink);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-degree {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-school {
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    /* Competitions Section */
+    #competitions {
+      background-color: rgba(26, 26, 46, 0.9);
+    }
+
+    .competitions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .competition-card {
+      background-color: rgba(248, 243, 230, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .competition-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .competition-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 46, 151, 0.2);
+    }
+
+    .competition-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--neon-pink), var(--neon-blue));
+      z-index: -1;
+      transition: all 0.3s ease;
+    }
+
+    .competition-card:hover:before {
+      width: 100%;
+      opacity: 0.1;
+    }
+
+    .competition-award {
+      display: inline-block;
+      background-color: rgba(255, 77, 141, 0.1);
+      color: var(--pink);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .competition-name {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .competition-role {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    /* Services Section */
+    #services {
+      background-color: var(--dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background-color: rgba(248, 243, 230, 0.05);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 46, 151, 0.2);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--pink);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      color: var(--neon-blue);
+      transform: scale(1.1);
+    }
+
+    .service-title {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact Section */
+    #contact {
+      background-color: rgba(26, 26, 46, 0.9);
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .contact-form {
+      width: 60%;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      background-color: rgba(248, 243, 230, 0.05);
+      border-radius: 5px;
+      color: var(--cream);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--pink);
+    }
+
+    .contact-info {
+      width: 35%;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-icon {
+      margin-right: 1rem;
+      font-size: 1.5rem;
+      color: var(--pink);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      padding: 2rem 10%;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .back-to-top {
+      position: absolute;
+      right: 10%;
+      bottom: 2rem;
+      width: 50px;
+      height: 50px;
+      background-color: var(--pink);
+      color: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--neon-blue);
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px var(--neon-blue);
+    }
+
+    /* Animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Glow Effect */
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 46, 151, 0.2) 0%, rgba(0, 243, 255, 0.1) 50%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+
+    .glow-1 {
+      top: 20%;
+      left: 10%;
+      animation: float-glow 10s ease-in-out infinite;
+    }
+
+    .glow-2 {
+      bottom: 10%;
+      right: 5%;
+      background: radial-gradient(circle, rgba(0, 243, 255, 0.2) 0%, rgba(255, 46, 151, 0.1) 50%, transparent 70%);
+      animation: float-glow 12s ease-in-out infinite reverse;
+    }
+
+    @keyframes float-glow {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(50px, 20px);
+      }
+      50% {
+        transform: translate(0, 40px);
+      }
+      75% {
+        transform: translate(-50px, 20px);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+      section {
+        padding: 4rem 5%;
+      }
+      
+      .hero-img {
+        width: 350px;
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-img {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 3rem auto 0;
+        width: 300px;
+        height: 300px;
+      }
+      
+      .hero-content {
+        max-width: 100%;
+        text-align: center;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+      
+      .timeline:before {
+        left: 40px;
+      }
+      
+      .timeline-item {
+        flex-direction: row !important;
+      }
+      
+      .timeline-content {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content:before,
+      .timeline-item:nth-child(even) .timeline-content:before {
+        left: -40px;
+      }
+      
+      .education-card {
+        width: 100%;
+      }
+      
+      .contact-form, .contact-info {
+        width: 100%;
+      }
+      
+      .contact-info {
+        margin-top: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--dark);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .nav-links li {
+        margin: 1.5rem 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      section {
+        padding: 3rem 5%;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Glows -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#hero">Shain<span>M</span></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#competitions">Competitions</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Shain Mukungu Kampasi</h1>
+      <p>Software Developer | Mobile App Expert | Educator</p>
+      <p>Hello! I'm a passionate Computer Science graduate with expertise in software development, mobile applications, and educational technology. With a strong foundation in various programming languages and frameworks, I create innovative solutions that solve real-world problems.</p>
+      <a href="#contact" class="btn">Get In Touch</a>
+      <div class="social-icons">
+        <a href="https://na.linkedin.com/in/shainmukungu-61a243206"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/shecode-hue"><i class="fab fa-github"></i></a>
+        <a href="mailto:shainkampasi@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="hero-img">
+        <img src='assets/images/shain.jpeg' alt='Shain'>" />
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <div class="about-text animate-on-scroll">
+        <p>I am a Computer Science graduate from the University of Namibia with extensive experience in software development, mobile applications, and educational technology. My journey began with a strong foundation in scientific subjects during high school, where I earned four Level 1's and one Level 2 in the Namibian Cambridge curriculum.</p>
+        <p>Throughout my academic career, I've balanced my studies with practical experience, transitioning from an intern with limited technical skills to a skilled Senior Software Developer capable of leading projects and teams. I am passionate about creating technology that solves real problems and enhances educational experiences.</p>
+        <p>My strengths include full-stack development, mobile app creation, and effectively communicating technical concepts to diverse audiences. I've successfully led multiple development projects and represented teams in client presentations to stakeholders including Members of Parliament and educational institutions.</p>
+      </div>
+      <div class="skills animate-on-scroll">
+        <h3>Technical Skills</h3>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Front-end Development (React, HTML, CSS)</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--w:90%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Mobile Development (Flutter, Dart)</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--w:85%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Back-end Development (Laravel, PHP)</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--w:80%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Database Management (SQL)</span>
+            <span>75%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--w:75%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Game Development (Unity, C#)</span>
+            <span>70%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--w:70%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Server & Network Management</span>
+            <span>75%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--w:75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <p>Here are some of the key projects I've worked on throughout my career.</p>
+    <div class="projects-grid">
+      <div class="project-card animate-on-scroll">
+        <div class="project-img">
+          <img src="assets/images/par.png" alt="Parliament App of Namibia">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Parliament App of Namibia</h3>
+          <p>Lead developer for the official Parliament App, handling front-end, back-end, and API integrations independently. Created a user-friendly interface for citizens to access parliamentary information.</p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">API Integration</span>
+            <span class="project-tag">Full Stack</span>
+          </div>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card animate-on-scroll">
+        <div class="project-img">
+          <img src="assets/images/steam.png" alt="STEAM App">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">STEAM App</h3>
+          <p>Developed an educational application to help students engage with STEAM (Science, Technology, Engineering, Arts, Mathematics) concepts through interactive learning experiences.</p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">Educational Tech</span>
+          </div>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card animate-on-scroll">
+        <div class="project-img">
+          <img src="assets/images/drive.png" alt="Drive Hack">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Drive Hack</h3>
+          <p>Built a comprehensive application from the ground up to address transportation and logistics challenges, featuring real-time tracking and scheduling capabilities.</p>
+          <div class="project-tags">
+            <span class="project-tag">Mobile Development</span>
+            <span class="project-tag">Back-end Services</span>
+            <span class="project-tag">Location Services</span>
+          </div>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card animate-on-scroll">
+        <div class="project-img">
+          <img src="/api/placeholder/400/200" alt="MindsinAction Website">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">MindsinAction Website</h3>
+          <p>Redesigned and developed the company website (mindsinaction.com.na), collaborating closely with graphic designers to ensure visual consistency and optimal user experience.</p>
+          <div class="project-tags">
+            <span class="project-tag">Web Development</span>
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">Responsive Design</span>
+          </div>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card animate-on-scroll">
+        <div class="project-img">
+          <img src="/api/placeholder/400/200" alt="Tournament Quiz System">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Tournament Quiz System</h3>
+          <p>Developed a custom quiz system used in school tournaments, featuring real-time scoring, multiple question formats, and administrative controls for educators.</p>
+          <div class="project-tags">
+            <span class="project-tag">Educational Tech</span>
+            <span class="project-tag">Real-time Systems</span>
+            <span class="project-tag">User Management</span>
+          </div>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card animate-on-scroll">
+        <div class="project-img">
+          <img src="/api/placeholder/400/200" alt="WordPress Client Websites">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">WordPress Client Websites</h3>
+          <p>Freelance development of two professional WordPress websites for clients at Yadah Media, implementing custom features and ensuring responsive design across all devices.</p>
+          <div class="project-tags">
+            <span class="project-tag">WordPress</span>
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">Responsive Design</span>
+          </div>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item animate-on-scroll">
+        <div class="timeline-content">
+          <div class="timeline-date">July 2022 - May 2025</div>
+          <h3 class="timeline-title">Senior Software Developer</h3>
+          <p class="timeline-desc">Mindsinaction STEAM Center</p>
+          <p class="timeline-desc">Developed multiple mobile applications using Flutter for cross-platform deployment, including the Parliament App of Namibia, STEAM App, and Drive Hack. Led client presentations to stakeholders including Members of Parliament and education officials. Created and taught programming courses for mathematics education.</p>
+          <p class="timeline-desc"><i class="fas fa-map-marker-alt"></i> On-site</p>
+        </div>
+      </div>
+
+      <div class="timeline-item animate-on-scroll">
+        <div class="timeline-content">
+          <div class="timeline-date">2024</div>
+          <h3 class="timeline-title">Project Manager</h3>
+          <p class="timeline-desc">Yadah Media</p>
+          <p class="timeline-desc">Promoted to manage projects after successful web development work. Oversaw development timelines, client communications, and team coordination for various media projects.</p>
+          <p class="timeline-desc"><i class="fas fa-laptop-house"></i> Remote</p>
+        </div>
+      </div>
+
+      <div class="timeline-item animate-on-scroll">
+        <div class="timeline-content">
+          <div class="timeline-date">2023</div>
+          <h3 class="timeline-title">Freelance Software Developer</h3>
+          <p class="timeline-desc">Yadah Media</p>
+          <p class="timeline-desc">Developed two professional WordPress websites for clients, implementing custom features and ensuring responsive design across all devices.</p>
+          <p class="timeline-desc"><i class="fas fa-laptop-house"></i> Remote</p>
+        </div>
+      </div>
+
+      <div class="timeline-item animate-on-scroll">
+        <div class="timeline-content">
+          <div class="timeline-date">2022 - Present</div>
+          <h3 class="timeline-title">Game Development Coach</h3>
+          <p class="timeline-desc">Edugame Namibia</p>
+          <p class="timeline-desc">Conducted Saturday morning classes teaching Unity, C#, Roblox, and Game Maker Studio. Developed curriculum to help students understand game development concepts and create their own projects.</p>
+          <p class="timeline-desc"><i class="fas fa-map-marker-alt"></i> On-site</p>
+        </div>
+      </div>
+
+      <div class="timeline-item animate-on-scroll">
+        <div class="timeline-content">
+          <div class="timeline-date">2022</div>
+          <h3 class="timeline-title">Intern</h3>
+          <p class="timeline-desc">NCRST Project at UNAM</p>
+          <p class="timeline-desc">Participated in a collaborative project between the University of Namibia and the National Commission on Research, Science and Technology. Applied theoretical knowledge to practical development tasks.</p>
+          <p class="timeline-desc"><i class="fas fa-map-marker-alt"></i> On-site</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-container">
+      <div class="education-card animate-on-scroll">
+        <div class="education-year">2020 - 2025</div>
+        <h3 class="education-degree">Bachelor of Computer Science</h3>
+        <p class="education-school">University of Namibia</p>
+        <p>Graduated with distinction in April 2025. Focus areas included software development, algorithm design, database management, and network administration.</p>
+        <p>Final Year Research Project: [Your Research Project Title]</p>
+      </div>
+
+      <div class="education-card animate-on-scroll">
+        <div class="education-year">Pre-2020</div>
+        <h3 class="education-degree">High School Certificate (NSSCH)</h3>
+        <p class="education-school">Namibian Cambridge Curriculum</p>
+        <p>Achieved outstanding results with four Level 1's and one Level 2 in science subjects and technical subjects, plus two B's in other subjects.</p>
+      </div>
+
+      <div class="education-card animate-on-scroll">
+        <div class="education-year">2022</div>
+        <h3 class="education-degree">Professional Development</h3>
+        <p class="education-school">Various Technical Certifications</p>
+        <p>Continuously enhanced skills through professional certifications in areas such as mobile app development, web technologies, and educational technology implementation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competitions Section -->
+  <section id="competitions">
+    <h2>Achievements & Hackathons</h2>
+    <div class="competitions-grid">
+      <div class="competition-card animate-on-scroll">
+        <span class="competition-award">1st Place</span>
+        <h3 class="competition-name">UNAM Astrophysics Data Science Hackathon</h3>
+        <p class="competition-role">Team Leader | 2025</p>
+        <p>Led a team to develop innovative data analysis solutions for astrophysics research challenges, combining scientific understanding with programming expertise.</p>
+      </div>
+
+      <div class="competition-card animate-on-scroll">
+        <span class="competition-award">1st Place</span>
+        <h3 class="competition-name">One Economy Foundation Social Hackathon</h3>
+        <p class="competition-role">Team Leader | 2023</p>
+        <p>Guided team in creating technological solutions addressing social and economic challenges in Namibia, with a focus on accessibility and sustainability.</p>
+      </div>
+
+      <div class="competition-card animate-on-scroll">
+        <span class="competition-award">2nd Place</span>
+        <h3 class="competition-name">NCRST Science Week Innovation Challenge</h3>
+        <p class="competition-role">Team Leader | 2023</p>
+        <p>Developed and presented innovative scientific solutions, demonstrating practical applications of scientific concepts to solve local problems.</p>
+      </div>
+
+      <div class="competition-card animate-on-scroll">
+        <span class="competition-award">Participant</span>
+        <h3 class="competition-name">UNESCO India-Africa Hackathon</h3>
+        <p class="competition-role">Team Member | 2022</p>
+        <p>Represented Namibia in an international hackathon held in India, collaborating with developers from multiple countries to address global challenges through technology.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Services I Offer</h2>
+    <div class="services-grid">
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3 class="service-title">Mobile App Development</h3>
+        <p>Custom mobile applications for iOS and Android using Flutter and native technologies. Specializing in cross-platform solutions with beautiful UI and seamless functionality.</p>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3 class="service-title">Web Development</h3>
+        <p>Responsive, modern websites using React, HTML5, CSS3, and JavaScript. From simple landing pages to complex web applications with database integration.</p>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon">
+          <i class="fas fa-server"></i>
+        </div>
+        <h3 class="service-title">Server & Database Management</h3>
+        <p>Setup and maintenance of servers, virtual machines, and database systems. Ensuring security, performance, and reliability for your applications.</p>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <h3 class="service-title">Game Development</h3>
+        <p>Educational and entertainment games using Unity, C#, and other game development platforms. Creating engaging experiences for various platforms.</p>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <h3 class="service-title">Technical Training</h3>
+        <p>Custom curriculum development and training in programming, game development, and software engineering concepts for individuals and organizations.</p>
+      </div>
+
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon">
+          <i class="fas fa-tasks"></i>
+        </div>
+        <h3 class="service-title">Project Management</h3>
+        <p>Overseeing technical projects from conception to completion, ensuring timely delivery, quality assurance, and effective team coordination.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-container">
+      <div class="contact-form animate-on-scroll">
+        <form action="#" method="POST">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info animate-on-scroll">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <p>shainkampasi@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div>
+            <h3>Phone</h3>
+            <p>+264 81 673 8340</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <div>
+            <h3>LinkedIn</h3>
+            <p>https://na.linkedin.com/in/shainmukungu-61a243206</p>
+          </div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-file-download"></i>
+            </div>
+            <div>
+              <h3>Download  My CV</h3>
+              <p><a href="assets/files/CV.pdf" download class="cv-download-link">Click here to download</a></p>
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Shain Mukungu Kampasi. All rights reserved.</p>
+      <p>Software Developer | Mobile App Expert | Educator</p>
+    </div>
+    <a href="#hero" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Sticky Navbar
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.toggle('sticky', window.scrollY > 50);
+    });
+
+    // Mobile Menu Toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Animate on scroll
+    const animateElements = document.querySelectorAll('.animate-on-scroll, .project-card, .timeline-item, .education-card, .competition-card, .service-card');
+
+    function checkScroll() {
+      animateElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('visible');
+        }
+      });
+    }
+
+    // Initial check on page load
+    window.addEventListener('DOMContentLoaded', checkScroll);
+    // Check on scroll
+    window.addEventListener('scroll', checkScroll);
+
+    // Skill bars animation
+    function animateSkills() {
+      const skillBars = document.querySelectorAll('.skill-progress');
+      skillBars.forEach(bar => {
+        const value = bar.style.getPropertyValue('--w');
+        bar.style.width = value;
+      });
+    }
+
+    // Trigger skill animation when about section is visible
+    const aboutSection = document.querySelector('#about');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(animateSkills, 300);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    observer.observe(aboutSection);
+
+    // Glow cursor effect
+    const glowFollower = document.createElement('div');
+    glowFollower.className = 'glow';
+    glowFollower.style.position = 'fixed';
+    glowFollower.style.pointerEvents = 'none';
+    glowFollower.style.width = '300px';
+    glowFollower.style.height = '300px';
+    glowFollower.style.background = 'radial-gradient(circle, rgba(255, 46, 151, 0.15) 0%, rgba(0, 243, 255, 0.1) 50%, transparent 70%)';
+    glowFollower.style.borderRadius = '50%';
+    glowFollower.style.transform = 'translate(-50%, -50%)';
+    glowFollower.style.zIndex = '-1';
+    glowFollower.style.filter = 'blur(40px)';
+    document.body.appendChild(glowFollower);
+
+    window.addEventListener('mousemove', (e) => {
+      glowFollower.style.left = e.clientX + 'px';
+      glowFollower.style.top = e.clientY + 'px';
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
