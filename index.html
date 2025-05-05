@@ -603,6 +603,15 @@
       margin-bottom: 1rem;
     }
 
+    .competition-img {
+  display: block;
+  margin: 0 auto 1rem auto; 
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; 
+  object-fit: cover;
+}
+
     .competition-name {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
@@ -669,51 +678,48 @@
     }
 
     .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-top: 2rem;
-    }
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
 
-    .contact-form {
-      width: 60%;
-    }
+.contact-info {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+}
 
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
 
-    .form-control {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      background-color: rgba(248, 243, 230, 0.05);
-      border-radius: 5px;
-      color: var(--cream);
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
+.contact-icon {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: var(--pink);
+  min-width: 24px;
+  text-align: center;
+}
 
-    .form-control:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px var(--pink);
-    }
+.contact-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--cream);
+}
 
-    .contact-info {
-      width: 35%;
-    }
+.contact-item p, .contact-item a {
+  margin: 0;
+  color: var(--cream);
+  text-decoration: none;
+}
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
+.cv-download-link:hover {
+  text-decoration: underline;
+}
 
-    .contact-icon {
-      margin-right: 1rem;
-      font-size: 1.5rem;
-      color: var(--pink);
-    }
+
 
     /* Footer */
     footer {
@@ -941,32 +947,35 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="hero">
-    <div class="hero-content">
-      <h1>Shain Mukungu Kampasi</h1>
-      <p>Software Developer | Mobile App Expert | Educator</p>
-      <p>Hello! I'm a passionate Computer Science graduate with expertise in software development, mobile applications, and educational technology. With a strong foundation in various programming languages and frameworks, I create innovative solutions that solve real-world problems.</p>
-      <a href="#contact" class="btn">Get In Touch</a>
-      <div class="social-icons">
-        <a href="https://na.linkedin.com/in/shainmukungu-61a243206"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/shecode-hue"><i class="fab fa-github"></i></a>
-        <a href="mailto:shainkampasi@gmail.com"><i class="fas fa-envelope"></i></a>
-      </div>
+ <!-- Hero Section -->
+<section id="hero">
+  <div class="hero-content">
+    <h1>Shain Mukungu Kampasi</h1>
+    <p>Creative Coder | App Wizard | Tech Educator</p>
+    <p>Hey there! I'm Shain — a curious and creative soul who loves building cool apps, solving tricky problems, and turning ideas into things people can actually use. Whether I’m crafting code or teaching others how to do it, I’m all about making tech fun, smart, and impactful.</p>
+    <a href="#contact" class="btn">Let’s Chat</a>
+    <div class="social-icons">
+      <a href="https://na.linkedin.com/in/shainmukungu-61a243206"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/shecode-hue"><i class="fab fa-github"></i></a>
+      <a href="mailto:shainkampasi@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
-    <div class="hero-img">
-        <img src='assets/images/shain.jpeg' alt='Shain'>" />
+  </div>
+  <div class="hero-img">
+    <img src="assets/images/shain.jpeg" alt="Shain" />
+  </div>
+</section>
 
-    </div>
-  </section>
 
   <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
     <div class="about-content">
       <div class="about-text animate-on-scroll">
-        <p>I am a Computer Science graduate from the University of Namibia with extensive experience in software development, mobile applications, and educational technology. My journey began with a strong foundation in scientific subjects during high school, where I earned four Level 1's and one Level 2 in the Namibian Cambridge curriculum.</p>
-        <p>Throughout my academic career, I've balanced my studies with practical experience, transitioning from an intern with limited technical skills to a skilled Senior Software Developer capable of leading projects and teams. I am passionate about creating technology that solves real problems and enhances educational experiences.</p>
-        <p>My strengths include full-stack development, mobile app creation, and effectively communicating technical concepts to diverse audiences. I've successfully led multiple development projects and represented teams in client presentations to stakeholders including Members of Parliament and educational institutions.</p>
+        <p>Hey again! I'm Shain — a self-taught tech lover and Computer Science grad from the University of Namibia who never stopped playing with code like it’s LEGO. My journey started with some killer high school science grades (not bragging...), and it evolved into building real-world solutions with real impact.</p>
+      
+        <p>I’ve gone from nervous intern to full-on dev mode — leading teams, speaking to stakeholders, and turning napkin sketches into fully functional apps. I love building things that make learning fun, technology easier, and people’s lives better. I’m especially passionate about working on projects that empower youth and make education more engaging.</p>
+        
+        <p>Whether I’m designing slick mobile UIs or helping others understand tech without the jargon, I bring curiosity, creativity, and a little bit of nerdy charm to every project I touch. </p>
       </div>
       <div class="skills animate-on-scroll">
         <h3>Technical Skills</h3>
@@ -1000,28 +1009,28 @@
         <div class="skill-item">
           <div class="skill-name">
             <span>Database Management (SQL)</span>
-            <span>75%</span>
+            <span>85%</span>
           </div>
           <div class="skill-bar">
-            <div class="skill-progress" style="--w:75%"></div>
+            <div class="skill-progress" style="--w:85%"></div>
           </div>
         </div>
         <div class="skill-item">
           <div class="skill-name">
             <span>Game Development (Unity, C#)</span>
-            <span>70%</span>
+            <span>80%</span>
           </div>
           <div class="skill-bar">
-            <div class="skill-progress" style="--w:70%"></div>
+            <div class="skill-progress" style="--w:80%"></div>
           </div>
         </div>
         <div class="skill-item">
           <div class="skill-name">
             <span>Server & Network Management</span>
-            <span>75%</span>
+            <span>85%</span>
           </div>
           <div class="skill-bar">
-            <div class="skill-progress" style="--w:75%"></div>
+            <div class="skill-progress" style="--w:85%"></div>
           </div>
         </div>
       </div>
@@ -1046,7 +1055,7 @@
             <span class="project-tag">API Integration</span>
             <span class="project-tag">Full Stack</span>
           </div>
-          <a href="#" class="btn">View Details</a>
+        
         </div>
       </div>
 
@@ -1062,7 +1071,7 @@
             <span class="project-tag">Dart</span>
             <span class="project-tag">Educational Tech</span>
           </div>
-          <a href="#" class="btn">View Details</a>
+          
         </div>
       </div>
 
@@ -1078,13 +1087,13 @@
             <span class="project-tag">Back-end Services</span>
             <span class="project-tag">Location Services</span>
           </div>
-          <a href="#" class="btn">View Details</a>
+ 
         </div>
       </div>
 
       <div class="project-card animate-on-scroll">
         <div class="project-img">
-          <img src="/api/placeholder/400/200" alt="MindsinAction Website">
+          <img src="assets/images/mia.png" alt="Mindsinaction Website">
         </div>
         <div class="project-content">
           <h3 class="project-title">MindsinAction Website</h3>
@@ -1094,14 +1103,12 @@
             <span class="project-tag">UI/UX</span>
             <span class="project-tag">Responsive Design</span>
           </div>
-          <a href="#" class="btn">View Details</a>
+          
         </div>
       </div>
 
       <div class="project-card animate-on-scroll">
-        <div class="project-img">
-          <img src="/api/placeholder/400/200" alt="Tournament Quiz System">
-        </div>
+       
         <div class="project-content">
           <h3 class="project-title">Tournament Quiz System</h3>
           <p>Developed a custom quiz system used in school tournaments, featuring real-time scoring, multiple question formats, and administrative controls for educators.</p>
@@ -1110,14 +1117,12 @@
             <span class="project-tag">Real-time Systems</span>
             <span class="project-tag">User Management</span>
           </div>
-          <a href="#" class="btn">View Details</a>
+          
         </div>
       </div>
 
       <div class="project-card animate-on-scroll">
-        <div class="project-img">
-          <img src="/api/placeholder/400/200" alt="WordPress Client Websites">
-        </div>
+        
         <div class="project-content">
           <h3 class="project-title">WordPress Client Websites</h3>
           <p>Freelance development of two professional WordPress websites for clients at Yadah Media, implementing custom features and ensuring responsive design across all devices.</p>
@@ -1126,7 +1131,7 @@
             <span class="project-tag">PHP</span>
             <span class="project-tag">Responsive Design</span>
           </div>
-          <a href="#" class="btn">View Details</a>
+         
         </div>
       </div>
     </div>
@@ -1139,7 +1144,7 @@
       <div class="timeline-item animate-on-scroll">
         <div class="timeline-content">
           <div class="timeline-date">July 2022 - May 2025</div>
-          <h3 class="timeline-title">Senior Software Developer</h3>
+          <h3 class="timeline-title">Software Developer</h3>
           <p class="timeline-desc">Mindsinaction STEAM Center</p>
           <p class="timeline-desc">Developed multiple mobile applications using Flutter for cross-platform deployment, including the Parliament App of Namibia, STEAM App, and Drive Hack. Led client presentations to stakeholders including Members of Parliament and education officials. Created and taught programming courses for mathematics education.</p>
           <p class="timeline-desc"><i class="fas fa-map-marker-alt"></i> On-site</p>
@@ -1197,15 +1202,18 @@
         <h3 class="education-degree">Bachelor of Computer Science</h3>
         <p class="education-school">University of Namibia</p>
         <p>Graduated with distinction in April 2025. Focus areas included software development, algorithm design, database management, and network administration.</p>
-        <p>Final Year Research Project: [Your Research Project Title]</p>
+        <p>Final Year Research Project: Virtual Reality Platform for Cultural Artifact Preservation</p>
       </div>
 
       <div class="education-card animate-on-scroll">
         <div class="education-year">Pre-2020</div>
         <h3 class="education-degree">High School Certificate (NSSCH)</h3>
-        <p class="education-school">Namibian Cambridge Curriculum</p>
-        <p>Achieved outstanding results with four Level 1's and one Level 2 in science subjects and technical subjects, plus two B's in other subjects.</p>
+        <p class="education-school">Rukonga Vision School</p>
+        <p>
+          Achieved the following grades: Level 1 in Biology, Design and Technology, Mathematics, and Physical Science; Level 2 in English as a Second Language; Grade B in Entrepreneurship and Portuguese (Foreign Language).
+        </p>
       </div>
+      
 
       <div class="education-card animate-on-scroll">
         <div class="education-year">2022</div>
@@ -1221,6 +1229,7 @@
     <h2>Achievements & Hackathons</h2>
     <div class="competitions-grid">
       <div class="competition-card animate-on-scroll">
+        <img src="assets/images/astro.jpeg" alt="Astrophysics Hackathon" class="competition-img">
         <span class="competition-award">1st Place</span>
         <h3 class="competition-name">UNAM Astrophysics Data Science Hackathon</h3>
         <p class="competition-role">Team Leader | 2025</p>
@@ -1228,6 +1237,7 @@
       </div>
 
       <div class="competition-card animate-on-scroll">
+        <img src="assets/images/yoh.jpeg " alt="Astrophysics Hackathon" class="competition-img">
         <span class="competition-award">1st Place</span>
         <h3 class="competition-name">One Economy Foundation Social Hackathon</h3>
         <p class="competition-role">Team Leader | 2023</p>
@@ -1235,6 +1245,7 @@
       </div>
 
       <div class="competition-card animate-on-scroll">
+        <img src="assets/images/ncrst.jpeg" alt="Astrophysics Hackathon" class="competition-img">
         <span class="competition-award">2nd Place</span>
         <h3 class="competition-name">NCRST Science Week Innovation Challenge</h3>
         <p class="competition-role">Team Leader | 2023</p>
@@ -1242,6 +1253,7 @@
       </div>
 
       <div class="competition-card animate-on-scroll">
+        <img src="assets/images/uia.jpg" alt="Astrophysics Hackathon" class="competition-img">
         <span class="competition-award">Participant</span>
         <h3 class="competition-name">UNESCO India-Africa Hackathon</h3>
         <p class="competition-role">Team Member | 2022</p>
@@ -1308,23 +1320,6 @@
   <section id="contact">
     <h2>Get In Touch</h2>
     <div class="contact-container">
-      <div class="contact-form animate-on-scroll">
-        <form action="#" method="POST">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Subject">
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-      </div>
       <div class="contact-info animate-on-scroll">
         <div class="contact-item">
           <div class="contact-icon">
